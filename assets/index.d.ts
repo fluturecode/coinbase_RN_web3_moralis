@@ -1,4 +1,4 @@
-import { ImageSourcePropType } from 'react-native';
+import {ImageSourcePropType} from 'react-native';
 
 declare module '*.png' {
   export default ImageSourcePropType;

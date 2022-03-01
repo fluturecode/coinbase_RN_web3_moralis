@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { WalletService } from "../types";
+import {WalletService} from '../types';
 
 type State = {
   readonly data: readonly WalletService[]; // TODO
@@ -20,7 +20,9 @@ export default function useMobileRegistry(): State {
   React.useEffect(() => {
     (async () => {
       try {
-        const result = await fetch("https://registry.walletconnect.org/data/wallets.json");
+        const result = await fetch(
+          'https://registry.walletconnect.org/data/wallets.json',
+        );
         const data = await result.json();
         setState({
           data: Object.values(data) as readonly WalletService[],
@@ -30,7 +32,7 @@ export default function useMobileRegistry(): State {
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
-        setState({ ...defaultState, error: error as any, loading: false });
+        setState({...defaultState, error: error as any, loading: false});
       }
     })();
   }, [setState]);

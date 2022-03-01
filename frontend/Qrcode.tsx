@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Alert, Text, Pressable } from "react-native";
-import QR from "react-native-qrcode-svg";
-import { Modal, Portal, Button, Provider } from "react-native-paper";
+import React, {useState} from 'react';
+import {StyleSheet, View, Alert, Text, Pressable} from 'react-native';
+import QR from 'react-native-qrcode-svg';
+import {Modal, Portal, Button, Provider} from 'react-native-paper';
 
 export type QrcodeProps = {
   readonly uri?: string;
@@ -12,31 +12,31 @@ const padding = 15;
 
 const styles = StyleSheet.create({
   center: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   mt: {
     marginTop: 150,
   },
   qr: {
     padding,
-    backgroundColor: "white",
-    overflow: "hidden",
+    backgroundColor: 'white',
+    overflow: 'hidden',
     borderRadius: padding,
   },
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 22,
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -51,30 +51,30 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: "#F194FF",
+    backgroundColor: '#F194FF',
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: '#2196F3',
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center",
+    textAlign: 'center',
   },
 });
 
-export default function Qrcode({ size = 400, uri }: QrcodeProps): JSX.Element {
+export default function Qrcode({size = 400, uri}: QrcodeProps): JSX.Element {
   const [modalVisible, setModalVisible] = useState(false);
 
   const [visible, setVisible] = React.useState(false);
 
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
-  const containerStyle = { backgroundColor: "white", padding: 20 };
+  const containerStyle = {backgroundColor: 'white', padding: 20};
 
   if (!uri) {
     return null;
@@ -85,7 +85,8 @@ export default function Qrcode({ size = 400, uri }: QrcodeProps): JSX.Element {
         <Modal
           visible={visible}
           onDismiss={hideModal}
-          contentContainerStyle={containerStyle}>
+          contentContainerStyle={containerStyle}
+        >
           <View style={styles.modalView}>
             {/* <View
         style={[
@@ -94,7 +95,7 @@ export default function Qrcode({ size = 400, uri }: QrcodeProps): JSX.Element {
           styles.qr,
           styles.mt,
         ]}> */}
-            {typeof uri === "string" && !!uri.length && (
+            {typeof uri === 'string' && !!uri.length && (
               // @ts-ignore
               <QR logoSize={size * 0.2} value={uri} size={size - padding * 2} />
             )}
@@ -111,7 +112,7 @@ export default function Qrcode({ size = 400, uri }: QrcodeProps): JSX.Element {
           <Text>Example Modal. Click outside this area to dismiss.</Text>
         </Modal>
       </Portal>
-      <Button style={{ marginTop: 30 }} onPress={showModal}>
+      <Button style={{marginTop: 30}} onPress={showModal}>
         Show
       </Button>
     </Provider>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import QR from 'react-native-qrcode-svg';
 
 import Logo from '../assets/walletconnect-logo.png';
@@ -24,15 +24,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Qrcode({
-  size,
-  uri,
-}: QrcodeProps): JSX.Element {
+export default function Qrcode({size, uri}: QrcodeProps): JSX.Element {
   return (
-    <View style={[{ width: size, height: size }, styles.center, styles.qr]}>
+    <View style={[{width: size, height: size}, styles.center, styles.qr]}>
       {typeof uri === 'string' && !!uri.length && (
         // @ts-ignore
-        <QR logo={Logo} logoSize={size * 0.2} value={uri} size={size - padding * 2 } />
+        <QR
+          logo={Logo}
+          logoSize={size * 0.2}
+          value={uri}
+          size={size - padding * 2}
+        />
       )}
     </View>
   );

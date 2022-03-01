@@ -1,12 +1,12 @@
-import WalletConnect from "@walletconnect/client";
-import { IWalletConnectOptions } from "@walletconnect/types";
-import { ReactNativeStorageOptions } from "keyvaluestorage";
+import WalletConnect from '@walletconnect/client';
+import {IWalletConnectOptions} from '@walletconnect/types';
+import {ReactNativeStorageOptions} from 'keyvaluestorage';
 
 export enum ConnectorEvents {
-  CONNECT = "connect",
-  CALL_REQUEST_SENT = "call_request_sent",
-  SESSION_UPDATE = "session_update",
-  DISCONNECT = "disconnect",
+  CONNECT = 'connect',
+  CALL_REQUEST_SENT = 'call_request_sent',
+  SESSION_UPDATE = 'session_update',
+  DISCONNECT = 'disconnect',
 }
 
 export type WalletService = {
@@ -53,7 +53,10 @@ export type WalletConnectOptions = IWalletConnectOptions & {
   readonly storageOptions: Partial<WalletConnectStorageOptions>;
 };
 
-export type ConnectToWalletServiceCallback = (walletService: WalletService, uri?: string) => Promise<void>;
+export type ConnectToWalletServiceCallback = (
+  walletService: WalletService,
+  uri?: string,
+) => Promise<void>;
 
 export type WalletConnectContextValue = WalletConnectOptions & {
   readonly connectToWalletService: ConnectToWalletServiceCallback;
@@ -70,7 +73,9 @@ export type RenderQrcodeModalProps = {
   readonly onDismiss: () => unknown;
 };
 
-export type RenderQrcodeModalCallback = (props: RenderQrcodeModalProps) => JSX.Element;
+export type RenderQrcodeModalCallback = (
+  props: RenderQrcodeModalProps,
+) => JSX.Element;
 
 export type WalletConnectProviderProps = WalletConnectOptions & {
   readonly children: JSX.Element | readonly JSX.Element[];

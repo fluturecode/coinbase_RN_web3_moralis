@@ -59,7 +59,8 @@ export const Providers = ({children}: ProvidersProps) => {
       <MoralisProvider
         appId={appId}
         serverUrl={serverUrl}
-        environment={environment}>
+        environment={environment}
+      >
         <MoralisDappProvider>
           <ApplicationProvider {...eva} theme={eva.light}>
             {children}

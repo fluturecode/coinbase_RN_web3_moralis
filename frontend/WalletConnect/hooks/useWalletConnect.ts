@@ -1,7 +1,7 @@
-import WalletConnect from "@walletconnect/client";
-import * as React from "react";
+import WalletConnect from '@walletconnect/client';
+import * as React from 'react';
 
-import useWalletConnectContext from "./useWalletConnectContext";
+import useWalletConnectContext from './useWalletConnectContext';
 
 export type useWalletConnectResult = {
   readonly connector?: WalletConnect;
@@ -9,7 +9,7 @@ export type useWalletConnectResult = {
 };
 
 export default function useWalletConnect(): WalletConnect {
-  const { connector } = useWalletConnectContext();
+  const {connector} = useWalletConnectContext();
   return React.useMemo((): WalletConnect => {
     if (connector) {
       return connector;

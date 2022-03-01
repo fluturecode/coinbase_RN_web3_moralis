@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useMoralis } from "react-moralis";
-import useERC20Balance from "../../hooks/useERC20balance";
+import React, {useState} from 'react';
+import {useMoralis} from 'react-moralis';
+import useERC20Balance from '../../hooks/useERC20balance';
 import {
   StyleSheet,
   View,
@@ -9,15 +9,15 @@ import {
   SafeAreaView,
   ScrollView,
   Text,
-} from "react-native";
-import NativeBalance from "./NativeBalance";
-import ERC20Balance from "./ERC20Balance";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faUniversity } from "@fortawesome/free-solid-svg-icons";
-import { Card } from "@ui-kitten/components";
+} from 'react-native';
+import NativeBalance from './NativeBalance';
+import ERC20Balance from './ERC20Balance';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faUniversity} from '@fortawesome/free-solid-svg-icons';
+import {Card} from '@ui-kitten/components';
 
 export default function Assets() {
-  const { Moralis } = useMoralis();
+  const {Moralis} = useMoralis();
   // const nativeName = useMemo(() => getNativeByChain(options?.chain || chainId), [options, chainId]);
   return (
     <SafeAreaView style={[StyleSheet.absoluteFill, styles.container]}>
@@ -51,20 +51,20 @@ export default function Assets() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   chainText: {
     fontSize: 15,
-    color: "#414a4c",
+    color: '#414a4c',
     paddingTop: 20,
     paddingHorizontal: 5,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   headerText: {
-    color: "black",
-    fontWeight: "600",
+    color: 'black',
+    fontWeight: '600',
     fontSize: 35,
   },
   viewContainer: {

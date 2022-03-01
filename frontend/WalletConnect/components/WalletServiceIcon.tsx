@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import * as React from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-import { WalletService } from "../types";
+import {WalletService} from '../types';
 
 // eslint-disable-next-line functional/no-mixed-type
 export type WalletServiceIconProps = {
@@ -9,23 +9,23 @@ export type WalletServiceIconProps = {
   readonly height: number;
   readonly walletService: WalletService;
   readonly connectToWalletService: (walletService: WalletService) => unknown;
-  readonly size?: "sm" | "md" | "lg";
+  readonly size?: 'sm' | 'md' | 'lg';
 };
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    alignItems: 'center',
   },
-  fullWidth: { width: "100%" },
-  icon: { borderRadius: 15 },
-  noOverflow: { overflow: "hidden" },
+  fullWidth: {width: '100%'},
+  icon: {borderRadius: 15},
+  noOverflow: {overflow: 'hidden'},
   title: {
-    color: "grey",
+    color: 'grey',
     fontSize: 12,
-    fontWeight: "500",
-    textAlign: "center",
+    fontWeight: '500',
+    textAlign: 'center',
   },
-  padding: { padding: 5 },
+  padding: {padding: 5},
 });
 
 export default function WalletServiceIcon({
@@ -33,22 +33,23 @@ export default function WalletServiceIcon({
   height,
   walletService,
   connectToWalletService,
-  size = "md",
+  size = 'md',
 }: WalletServiceIconProps): JSX.Element {
   const uri = React.useMemo(
     () =>
       `https://registry.walletconnect.org/logo/${size}/${walletService.id}.jpeg`,
-    [walletService, size]
+    [walletService, size],
   );
   const onPress = React.useCallback(
     () => connectToWalletService(walletService),
-    [connectToWalletService, walletService]
+    [connectToWalletService, walletService],
   );
   return (
     <View>
       <TouchableOpacity
         onPress={onPress}
-        style={[{ width, height }, styles.container, styles.padding]}>
+        style={[{width, height}, styles.container, styles.padding]}
+      >
         <Image
           style={[
             styles.icon,
@@ -57,12 +58,13 @@ export default function WalletServiceIcon({
               height: height * 0.6,
             },
           ]}
-          source={{ uri }}
+          source={{uri}}
         />
         <Text
           style={[styles.title, styles.fullWidth]}
           numberOfLines={1}
-          ellipsizeMode="tail">
+          ellipsizeMode="tail"
+        >
           {walletService.name}
         </Text>
       </TouchableOpacity>

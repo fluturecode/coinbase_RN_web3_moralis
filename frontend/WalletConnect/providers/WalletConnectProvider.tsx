@@ -37,10 +37,8 @@ export default function WalletConnectProvider({
   renderQrcodeModal: maybeRenderQrcodeModal, //scannable QR code
   ...extras
 }: Partial<WalletConnectProviderProps>): JSX.Element {
-  const {
-    error: walletServicesError,
-    data: walletServices,
-  } = useMobileRegistry();
+  const {error: walletServicesError, data: walletServices} =
+    useMobileRegistry();
 
   const [state, setState] = React.useState<State>(defaultState);
   const parentContext = useWalletConnectContext();
@@ -172,13 +170,11 @@ export default function WalletConnectProvider({
     ): Promise<WalletConnect> {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const {storageOptions: _storageOptions, ...extras} = params;
-      const [
-        maybeExistingSession,
-        maybeExistingWalletService,
-      ] = await Promise.all([
-        await storage.getItem(sessionStorageKey),
-        await storage.getItem(walletServiceStorageKey),
-      ]);
+      const [maybeExistingSession, maybeExistingWalletService] =
+        await Promise.all([
+          await storage.getItem(sessionStorageKey),
+          await storage.getItem(walletServiceStorageKey),
+        ]);
 
       const isResumable = false;
       (!!maybeExistingSession &&
@@ -245,9 +241,8 @@ export default function WalletConnectProvider({
             // On Android, fall back to asking the user to pick the correct application.
             Linking.openURL('wc:');
           } else if (Platform.OS !== 'web') {
-            const walletService:
-              | WalletService
-              | undefined = await storage.getItem(walletServiceStorageKey);
+            const walletService: WalletService | undefined =
+              await storage.getItem(walletServiceStorageKey);
 
             if (!walletService) {
               return maybeThrowError(

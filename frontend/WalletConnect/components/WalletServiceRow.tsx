@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Animated, StyleSheet, ViewStyle } from 'react-native';
+import {Animated, StyleSheet, ViewStyle} from 'react-native';
 
-import { WalletService } from '../types';
+import {WalletService} from '../types';
 
 import WalletServiceIcon from './WalletServiceIcon';
 
@@ -16,7 +16,7 @@ export type WalletServiceRowProps = {
 };
 
 const styles = StyleSheet.create({
-  row: { alignItems: 'center', flexDirection: 'row' },
+  row: {alignItems: 'center', flexDirection: 'row'},
 });
 
 export default function WalletServiceRow({
@@ -28,7 +28,13 @@ export default function WalletServiceRow({
   connectToWalletService,
 }: WalletServiceRowProps): JSX.Element {
   return (
-    <Animated.View style={[{ width, height }, styles.row, StyleSheet.flatten(style as ViewStyle)]}>
+    <Animated.View
+      style={[
+        {width, height},
+        styles.row,
+        StyleSheet.flatten(style as ViewStyle),
+      ]}
+    >
       {walletServices.map((walletService: WalletService, i: number) => (
         <WalletServiceIcon
           key={`i${i}`}
@@ -40,4 +46,4 @@ export default function WalletServiceRow({
       ))}
     </Animated.View>
   );
-};
+}

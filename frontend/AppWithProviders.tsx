@@ -1,6 +1,6 @@
-import React from "react";
-import App from "./App";
-import { Providers } from "./Providers";
+import React from 'react';
+import App from './App';
+import {Providers} from './Providers';
 
 export default () => (
   <Providers>

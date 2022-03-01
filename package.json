@@ -17,7 +17,8 @@
     "start": "react-native start",
     "test": "jest --config ./jest.config.js",
     "lint": "eslint .",
-    "postinstall": "node_modules/.bin/rn-nodeify --install crypto,http,https,os,assert,url,stream,events --yarn"
+    "postinstall": "node_modules/.bin/rn-nodeify --install crypto,http,https,os,assert,url,stream,events --yarn",
+    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,css,html}'"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.7",
