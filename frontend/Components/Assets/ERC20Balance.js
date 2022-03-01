@@ -19,35 +19,34 @@ const DefaultLogoBasedOnChain = ({chain}) => {
     return (
       <Image
         source={{
-          uri: 'https://ethereum.org/static/6f05d59dc633140e4b547cb92f22e781/a7715/eth-diamond-purple-white.jpg',
+          uri:
+            'https://ethereum.org/static/6f05d59dc633140e4b547cb92f22e781/a7715/eth-diamond-purple-white.jpg',
         }}
-        style={styles.logo}
-      ></Image>
+        style={styles.logo}></Image>
     );
   else if (chain == '0x38')
     return (
       <Image
         source={{
-          uri: 'https://assets.trustwalletapp.com/blockchains/smartchain/info/logo.png',
+          uri:
+            'https://assets.trustwalletapp.com/blockchains/smartchain/info/logo.png',
         }}
-        style={styles.logo}
-      ></Image>
+        style={styles.logo}></Image>
     );
   else if (chain == '0x89')
     return (
       <Image
         source={{uri: 'https://cryptologos.cc/logos/polygon-matic-logo.png'}}
-        style={styles.logo}
-      ></Image>
+        style={styles.logo}></Image>
     );
   else
     return (
       <Image
         source={{
-          uri: 'https://ethereum.org/static/6f05d59dc633140e4b547cb92f22e781/a7715/eth-diamond-purple-white.jpg',
+          uri:
+            'https://ethereum.org/static/6f05d59dc633140e4b547cb92f22e781/a7715/eth-diamond-purple-white.jpg',
         }}
-        style={styles.logo}
-      ></Image>
+        style={styles.logo}></Image>
     );
 };
 
@@ -85,8 +84,7 @@ const Item = ({name, logo, balance, symbol, price, tokenAddress, chain}) => {
             flex: 2,
             justifyContent: 'center',
             alignItems: 'flex-end',
-          }}
-        >
+          }}>
           <Text style={styles.dollarBalance}>
             ${parseFloat(tokenPriceInNumber * balanceFormatted).toFixed(3)}
           </Text>

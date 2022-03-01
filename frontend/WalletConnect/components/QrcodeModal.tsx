@@ -98,12 +98,11 @@ export default function QrcodeModal({
     }),
     [],
   );
-  const walletServiceRows =
-    React.useMemo((): readonly (readonly WalletService[])[] => {
-      return [...Array(Math.ceil(walletServices.length / division))].map(
-        (_, i) => walletServices.slice(i * division, i * division + division),
-      );
-    }, [walletServices, division]);
+  const walletServiceRows = React.useMemo((): readonly (readonly WalletService[])[] => {
+    return [...Array(Math.ceil(walletServices.length / division))].map((_, i) =>
+      walletServices.slice(i * division, i * division + division),
+    );
+  }, [walletServices, division]);
 
   const modalHeight = height * 0.4;
   const modalWidth = modalHeight * 0.9;
@@ -193,8 +192,7 @@ export default function QrcodeModal({
             styles.noOverflow,
             {width: modalWidth, height: modalHeight},
           ]}
-          pointerEvents={visible ? 'box-none' : 'none'}
-        >
+          pointerEvents={visible ? 'box-none' : 'none'}>
           {/* <View style={[styles.modalView, styles.noOverflow]}> */}
           {/* <Text style={styles.modalText}>Hello World!</Text> */}
           <Animated.View
@@ -213,25 +211,21 @@ export default function QrcodeModal({
                 // styles.flex,
               ]
             }
-            pointerEvents={visible ? 'box-none' : 'none'}
-          >
+            pointerEvents={visible ? 'box-none' : 'none'}>
             {/* backdrop */}
 
             <View
               style={[styles.center]}
-              pointerEvents={visible ? 'box-none' : 'none'}
-            >
+              pointerEvents={visible ? 'box-none' : 'none'}>
               <Animated.View
-                style={{width: modalListWidth, height: modalHeight * 0.9}}
-              >
+                style={{width: modalListWidth, height: modalHeight * 0.9}}>
                 {shouldRenderQrcode ? (
                   <Animated.View
                     style={[
                       StyleSheet.absoluteFill,
                       styles.center,
                       {opacity: icons, transform: [{scale: icons}]},
-                    ]}
-                  >
+                    ]}>
                     <Qrcode uri={uri} size={modalListHeight * 0.8} />
                   </Animated.View>
                 ) : (
@@ -275,8 +269,7 @@ export default function QrcodeModal({
         </View>
         <Pressable
           style={[styles.button, styles.buttonClose]}
-          onPress={() => onDismiss()}
-        >
+          onPress={() => onDismiss()}>
           <Text style={styles.textStyle}>Close </Text>
         </Pressable>
       </View>

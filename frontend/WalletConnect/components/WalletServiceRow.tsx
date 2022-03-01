@@ -33,8 +33,7 @@ export default function WalletServiceRow({
         {width, height},
         styles.row,
         StyleSheet.flatten(style as ViewStyle),
-      ]}
-    >
+      ]}>
       {walletServices.map((walletService: WalletService, i: number) => (
         <WalletServiceIcon
           key={`i${i}`}

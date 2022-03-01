@@ -48,8 +48,7 @@ export default function WalletServiceIcon({
     <View>
       <TouchableOpacity
         onPress={onPress}
-        style={[{width, height}, styles.container, styles.padding]}
-      >
+        style={[{width, height}, styles.container, styles.padding]}>
         <Image
           style={[
             styles.icon,
@@ -63,8 +62,7 @@ export default function WalletServiceIcon({
         <Text
           style={[styles.title, styles.fullWidth]}
           numberOfLines={1}
-          ellipsizeMode="tail"
-        >
+          ellipsizeMode="tail">
           {walletService.name}
         </Text>
       </TouchableOpacity>

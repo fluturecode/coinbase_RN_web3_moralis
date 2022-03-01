@@ -85,8 +85,7 @@ export default function Qrcode({size = 400, uri}: QrcodeProps): JSX.Element {
         <Modal
           visible={visible}
           onDismiss={hideModal}
-          contentContainerStyle={containerStyle}
-        >
+          contentContainerStyle={containerStyle}>
           <View style={styles.modalView}>
             {/* <View
         style={[
