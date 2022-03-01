@@ -1,8 +1,8 @@
-import React from "react";
+import JSX from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Onboarding from 
+import Onboarding from './Components/Coinbase/onboarding/Onboarding';
 
 const Stack = createStackNavigator();
 
