@@ -2,15 +2,15 @@ import * as eva from '@eva-design/eva';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ApplicationProvider } from '@ui-kitten/components';
 import Moralis from 'moralis/react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { MoralisProvider } from 'react-moralis';
 import { enableViaWalletConnect } from './Moralis/enableViaWalletConnect';
 //import Qrcode from "./Qrcode";
 //import { expo } from "../app.json";
 import { MoralisDappProvider } from './providers/MoralisDappProvider/MoralisDappProvider';
-import WalletConnectProvider, {
-  WalletConnectProviderProps
-} from './WalletConnect';
+import { UserContext } from './UserContext';
+import { WalletConnectProviderProps } from './WalletConnect';
+import WalletConnectProvider from './WalletConnect/providers/WalletConnectProvider';
 
 interface ProvidersProps {
   readonly children: JSX.Element;
@@ -49,6 +49,7 @@ const walletConnectOptions: WalletConnectProviderProps = {
 };
 
 export const Providers = ({children}: ProvidersProps) => {
+  const [value, setValue] = useState();
   return (
     <WalletConnectProvider {...walletConnectOptions}>
       <MoralisProvider
@@ -57,10 +58,9 @@ export const Providers = ({children}: ProvidersProps) => {
         environment={environment}>
         <MoralisDappProvider>
           <ApplicationProvider {...eva} theme={eva.light}>
-            <UserContext.Proivder value={{value, setValue}}>
+            <UserContext.Provider value={{value, setValue}}>
             {children}
-            </UserContext.Proivder>
-
+            </UserContext.Provider>
           </ApplicationProvider>
         </MoralisDappProvider>
       </MoralisProvider>
