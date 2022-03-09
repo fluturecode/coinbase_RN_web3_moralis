@@ -57,7 +57,10 @@ export const Providers = ({children}: ProvidersProps) => {
         environment={environment}>
         <MoralisDappProvider>
           <ApplicationProvider {...eva} theme={eva.light}>
+            <UserContext.Proivder value={{value, setValue}}>
             {children}
+            </UserContext.Proivder>
+
           </ApplicationProvider>
         </MoralisDappProvider>
       </MoralisProvider>
