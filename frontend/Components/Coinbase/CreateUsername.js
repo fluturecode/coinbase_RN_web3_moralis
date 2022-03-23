@@ -11,8 +11,16 @@ export const CreateUsername = ({navigation}) => {
             fontFamily: 'Helvetica Neue',
             fontWeight: '700',
             fontSize: 24,
+          }}></Text>
+        <Text
+          style={{
+            fontFamily: 'Helvetica Neue',
+            fontWeight: '700',
+            fontSize: 13,
+            color: '#4F5C6C',
+            marginTop: 10,
           }}>
-          Pick your username
+          This is how other Wallet users can find you and send you payments.
         </Text>
       </View>
     </SafeAreaView>
