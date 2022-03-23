@@ -3,7 +3,7 @@ import HeaderImage from '../../../assets/image/header1.png';
 
 export const CreateUsername = ({navigation}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
       <Image src={HeaderImage} style={{width: '100%'}} />
       <View>
         <Text
