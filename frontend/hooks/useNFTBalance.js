@@ -13,14 +13,16 @@ export const useNFTBalance = props => {
   const {isInitialized} = useMoralis();
   const {resolveLink} = useIPFS();
   const [NFTBalance, setNFTBalance] = useState([]);
-  const {fetch: getNFTBalance, data, error, isLoading} = useMoralisWeb3ApiCall(
-    account.getNFTs,
-    {
-      chain: chainId,
-      address: walletAddress,
-      ...props,
-    },
-  );
+  const {
+    fetch: getNFTBalance,
+    data,
+    error,
+    isLoading,
+  } = useMoralisWeb3ApiCall(account.getNFTs, {
+    chain: chainId,
+    address: walletAddress,
+    ...props,
+  });
 
   useEffect(() => {
     if (isInitialized) {
