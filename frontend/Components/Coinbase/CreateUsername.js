@@ -1,4 +1,5 @@
 import {SafeAreaView} from 'react-native-';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import HeaderImage from '../../../assets/image/header1.png';
 
 export const CreateUsername = ({navigation}) => {
@@ -22,6 +23,11 @@ export const CreateUsername = ({navigation}) => {
           }}>
           This is how other Wallet users can find you and send you payments.
         </Text>
+      </View>
+      <View>
+        <TouchableOpacity>
+          <Text>Next</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
